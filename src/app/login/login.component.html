@@ -1,0 +1,53 @@
+<div>
+    <div class="main">
+        <div class="card" style="padding-bottom: 40px; border-radius: 10px; background-image: url('../../assets/images/black222.jpg');">
+            <h2 class="buttonTextMain" style="text-align: center;">Login to a world of opportunities!</h2>
+            <form #loginForm="ngForm" (ngSubmit)="loginUser()">
+                <div class="container69" style="border-radius: 10px;">
+                    <!--{{loginForm.value|json}}-->
+                    
+                    <label for="email" class="buttonTextMain"><b style="color: honeydew; font-size: 20px;">Email Id</b></label>
+                    <!--<input type="text" placeholder="Enter Username" [(ngModel)]="user.uname" name="uname" required>-->
+                    <input style="border-radius: 10px;" type="email" #email="ngModel" placeholder="Enter Username" name = "email" [(ngModel)]="login.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                        <div class="alert" *ngIf="email.errors.required" style="color: rgb(145, 255, 0);">
+                            Email is required !
+                        </div>
+                        <div class="alert" *ngIf="email.errors.pattern" style="color: rgb(92, 250, 255);">
+                            Invalid Email !
+                        </div>
+                    </div>
+
+                    <label for="psw" class="buttonTextMain"><b style="color: honeydew; font-size: 20px;">Password</b></label>
+                    <!--<input type="password" placeholder="Enter Password" [(ngModel)]="user.psw" name="psw" required>-->
+                    <input style="border-radius: 10px;" type="password" #pass="ngModel" placeholder="Enter Password" name= "psw" [(ngModel)]="login.password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                    <div *ngIf="pass.invalid && (pass.dirty || pass.touched)">
+                        <div class="alert" *ngIf="pass.errors.required" style="color: rgb(145, 255, 0);">
+                            Password is required !
+                        </div>
+                        <div class="alert" *ngIf="pass.errors.pattern" style="color: cyan; ">
+                            Invalid Password Format !
+                        </div>
+                    </div>
+
+                    <button type="submit" style=" height: 40px; text-shadow: 0 0 10px rgb(255, 51, 0); margin-top: 10px; margin-bottom: 10px; border: 1px solid rgb(0, 0, 0); border-radius: 10px;"><b style="color: whitesmoke; font-size: 16px;">Login</b></button>
+                    <br>
+                    <label class="buttonTextMain" style="font-size: 15px; text-shadow: 0 0 5px rgb(0, 204, 255);">
+                        <input type="checkbox" checked="checked" name="remember">Remember me
+                    </label>
+                </div>
+                <div class="container69" style="background-image: url(../../assets/images/black-and-grey-diagonal-pattern-facebook-cover-timeline-banner-for-fb.jpg);border: 1px solid greenyellow; border-radius: 10px; ">
+                    <button style="border: 1px solid greenyellow; border-radius: 10px;" type="button" class="cancelbtn" [routerLink]="['/homeLink']"><b style="color: whitesmoke; text-shadow: 0 0 10px yellow;">Cancel</b></button>
+                    <span class="psw" style="font-size: 16px;"><a  [routerLink]="['/forgetLink']" style="color: aqua; text-shadow: 0 0 10px yellow;">Forgot Password?</a></span> 
+                </div>
+                <div class="container69">
+                    <label for="signin" class="buttonTextMain "><b style="color: honeydew; font-size: 16px;">New User? Register Here</b></label>
+                    <button style="  height: 40px; width: 120px;
+                    margin-top: 10px; border: 1px solid rgb(0, 0, 0);
+                     border-radius: 10px;" [routerLink]="['/registerLink']"><b style="color: whitesmoke; margin: auto; font-size: 16px; text-shadow: 0 0 5px rgb(255, 51, 0);">Sign Up</b></button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,106 @@
+<div id="motivation" style="margin: auto ; margin-top: 5px; padding: 5px; width: 800px; float:none;">
+    <label for="topic" class="buttonTextMain" style="font-size: 30px;">Are you ready ?</label>
+    <select #pass2="ngModel" id="topic" style="background-color: yellowgreen; width: 400px; margin: auto;" name="topic"
+        [(ngModel)]=questions.subId required>
+        <option selected value="java" style="font-size: 20px; text-shadow: 0 0 10px red; color: rgb(118, 0, 141);">Yesss
+            !</option>
+        <option selected value="java" style="font-size: 20px; text-shadow: 0 0 10px red; color: blue;">Bring It On !
+        </option>
+    </select>
+</div>
+<div *ngIf="pass2.valid && pass2.dirty"
+    style="margin:auto; margin-top: 5px; margin-bottom: 20px; padding: 5px; width: 1000px; float:none;">
+    <span id="span1" style="float: left;">
+        <h1 style="color: whitesmoke; text-shadow: 0 0 10px orangered;">LET'S START</h1>
+    </span>
+
+    <span id="span2" style="float: right; visibility: hidden;">
+        <h2 style="color: whitesmoke; text-shadow: 0 0 10px orangered;">JAVA Exam : Level {{questions.levelId}}</h2>
+        <p id="timer" style="color: rgb(98, 255, 229); font-size: 20px; text-shadow: 0 0 10px red;">Time Left : {{displayTimeElapsed()}}</p>
+    </span>
+
+
+    <button class="button" id="btstart"
+        style="width: 120px; height: 40px; margin: auto; margin-left: 300px; margin-top: 18px; padding: 5px;"
+        (click)="start()">
+        <b style="color: palegoldenrod; font-size: 20px; text-shadow:0 0 10px red;">Start</b>
+    </button>
+</div>
+
+<div class="qbz" id="but" style="visibility: hidden; margin-left: 60px;">
+    <span><button (click)=go(0) id="btn1"><b style="color: honeydew; text-shadow: 0 0 10px red;">1</b></button></span>
+    <span><button (click)=go(1) id="btn2"><b style="color: honeydew; text-shadow: 0 0 10px red;">2</b></button></span>
+    <span><button (click)=go(2) id="btn3"><b style="color: honeydew; text-shadow: 0 0 10px red;">3</b></button></span>
+    <span><button (click)=go(3) id="btn4"><b style="color: honeydew; text-shadow: 0 0 10px red;">4</b></button></span>
+    <span><button (click)=go(4) id="btn5"><b style="color: honeydew; text-shadow: 0 0 10px red;">5</b></button></span>
+    <span><button (click)=go(5) id="btn6"><b style="color: honeydew; text-shadow: 0 0 10px red;">6</b></button></span>
+    <span><button (click)=go(6) id="btn7"><b style="color: honeydew; text-shadow: 0 0 10px red;">7</b></button></span>
+    <span><button (click)=go(7) id="btn8"><b style="color: honeydew; text-shadow: 0 0 10px red;">8</b></button></span>
+    <span><button (click)=go(8) id="btn9"><b style="color: honeydew; text-shadow: 0 0 10px red;">9</b></button></span>
+    <span><button (click)=go(9) id="btn10"><b style="color: honeydew; text-shadow: 0 0 10px red;">10</b></button></span>
+    <span style="color: white; text-shadow: 0 0 10px greenyellow; font-size: 20px; margin-left: 10px;">Click to
+        navigate</span>
+</div>
+
+<form name="quiz" id="quiz">
+    <div id="quesdiv" class="quest" style="visibility: hidden; height: 380px;">
+        <h2 style="color: whitesmoke; text-shadow: 0 0 10px orangered;">Q.{{i+1}}</h2>
+        <h2 style="color:white; text-shadow: 0 0 10px greenyellow;">{{q.questionStatement}}</h2>
+        <input type="radio" style="height: 20px; width: 20px;" name="q{{i}}" value="A" (click)="confirm()"
+            [checked]="radiostatus"><b style="color:white; font-size: 20px;">{{q.option1}}</b><br><br>
+        <input type="radio" style="height: 20px; width: 20px;" name="q{{i}}" value="B" (click)="confirm()"
+            [checked]="radiostatus"><b style="color:white; font-size: 20px;">{{q.option2}}</b><br><br>
+        <input type="radio" style="height: 20px; width: 20px;" name="q{{i}}" value="C" (click)="confirm()"
+            [checked]="radiostatus"><b style="color:white; font-size: 20px;">{{q.option3}}</b><br><br>
+        <input type="radio" style="height: 20px; width: 20px;" name="q{{i}}" value="D" (click)="confirm()"
+            [checked]="radiostatus"><b style="color:white; font-size: 20px;">{{q.option4}}</b><br><br>
+        <br>
+        <span style="width: 800px; margin: auto;">
+            <button id="review" (click)="review(i)"
+                style="background-color: orangered; float: left; width: 200px; height: 40px; margin: auto; padding: 5px;">
+                <b style="color: palegoldenrod; font-size: 20px; text-shadow:0 0 10px greenyellow;">Review</b>
+            </button>
+            <button id="btnextques" (click)="run1()"
+                style=" float: right; visibility: hidden; width: 200px; height: 40px; margin: auto; padding: 5px;"><b
+                    style="color: palegoldenrod; font-size: 20px; text-shadow:0 0 10px red;">Next
+                    Question</b></button>
+        </span>
+    </div>
+</form>
+<div style="width: 1900px;">
+    <table class="tblres" id="tblres" style="visibility: hidden;">
+        <tr>
+            <p style="font-size: 30px; text-shadow: 0 0 10px orange; margin-left: 15px; color: wheat;">Your Responses:
+            </p>
+            <td>{{ans[0]}}</td>
+            <td>{{ans[1]}}</td>
+            <td>{{ans[2]}}</td>
+            <td>{{ans[3]}}</td>
+            <td>{{ans[4]}}</td>
+            <td>{{ans[5]}}</td>
+            <td>{{ans[6]}}</td>
+            <td>{{ans[7]}}</td>
+            <td>{{ans[8]}}</td>
+            <td>{{ans[9]}}</td>
+            <button id="btsubmit" (click)="run()"
+                style="visibility: hidden; width: 100px; height: 40px; padding: 2px; margin-right: 8px; margin-left: 8px;">
+                <b
+                    style="color: palegoldenrod; font-size: 20px; text-shadow:0 0 10px red; margin: auto; float: none;">Submit</b>
+            </button>
+        </tr>
+    </table>
+</div>
+<p id="pass" style="visibility: hidden; color: aqua; font-size: 30px; text-shadow: 0 0 10px greenyellow; margin-left: 220px;">Congratulations! You cleared Level
+    {{questions.levelId}} with score {{score}} </p>
+<p id="fail" style="visibility: hidden; color: whitesmoke; font-size: 30px; text-shadow: 0 0 10px red; margin-left:220px;">Sorry! You failed to clear Level
+    {{questions.levelId}}. You Scored {{score}}. Minimum score to qualify : 6</p>
+
+<button id="btnext" (click)="level()"
+    style="visibility: hidden; width: 120px; height: 40px; margin: auto; margin-left: 300px; margin-top: 18px; padding: 5px;">
+    <b style="color: palegoldenrod; font-size: 20px; text-shadow:0 0 10px red;">Next Level</b>
+</button>
+
+<button id="btresult" (click)="result()"
+    style="visibility: hidden; width: 120px; height: 40px; margin: auto; margin-left: 300px; margin-top: 18px; padding: 5px;">
+    <b style="color: palegoldenrod; font-size: 20px; text-shadow:0 0 10px red;">Result</b>
+</button>

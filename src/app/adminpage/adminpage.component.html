@@ -1,0 +1,37 @@
+<div style="text-align: center;">
+
+<div class="card" style="text-align: center; width: 886px;">
+  
+  <b class="buttonTextMain" style="text-align: center; margin-top: 50px; font-size:20px;">SELECT ACTION</b><br>
+
+  <div class="cc" style="float: left; margin: 20px;">
+    <img src="../../assets/images/question.jpeg" alt="Avatar" style="width:99.8%; border-radius: 10px;">
+    <div class="container" style="align-items: center;">
+      <button  class="buttonmain" style="align-self: center;" [routerLink]="['/questionLink']" target="new">
+        <h2 class="buttonTextMain">Add Questions</h2>
+      </button>
+    </div>
+  </div>
+
+  <div class="cc" style="float: left; margin: 20px;">
+    <img src="../../assets/images/erase.jpg" alt="Avatar" style="width: 100%; border-radius: 10px;" />
+    <div class="container">
+      <button class="buttonmain" [routerLink]="['/removeLink']" target="new">
+        <h2 class="buttonTextMain">Remove Questions</h2>
+      </button>
+    </div>
+  </div>
+  <div class="cc" style="float: left; margin: 20px;">
+    <img src="../../assets/images/results.jfif" alt="Avatar" style="width: 100%; border-radius: 10px;" />
+    <div class="container">
+      <button class="buttonmain" [routerLink]="['/studentSearchLink']" target="new">
+        <h2 class="buttonTextMain">Show Result</h2>
+      </button>
+    </div>
+  </div>
+
+  <button style="float: none; margin-bottom: 20px; margin-top: 20px; width: 100px; text-shadow: 0 0 10px red; border-radius: 10px;" [routerLink]="['/homeLink']">Back</button>
+
+
+</div>
+</div>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="header">
+    <span style="text-shadow: 0 0 20px greenyellow;"><b style="color: white;">ONLINE EXAMINATION SYSTEM</b></span>
+  </div>
+
+  <div class="topnap">
+    <ul>
+      <li><a [routerLink]="['/homeLink']"> Home </a></li>
+      <li><a [routerLink]="['/aboutusLink']">&nbsp; About Us </a></li>
+      <li><a [routerLink]="['/contactLink']"> &nbsp; Contact Us </a></li>
+      <li><img src="../assets/images/asdads.jpg"
+          style="margin-right: 10px; margin-bottom: 10px; margin-top: 0px;  height: 150px; max-width: 250px; float: right; border: none;">
+      </li>
+    </ul>
+  </div>
+
+  <div>
+   <router-outlet></router-outlet>
+  </div>
+
+  <div>
+    <div class="footer">
+      <p style="color: whitesmoke; text-shadow: 0 0 20px greenyellow;">© 2020 Larsen & Toubro Infotech Limited</p>
+    </div>  
+  </div>
+  
+</body>
+
+</html>

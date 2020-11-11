@@ -1,0 +1,40 @@
+<div>
+    <div class="main">
+        <div class="card" style="padding-bottom: 40px; border-radius: 10px;">
+            <h2 class="buttonTextMain" style="text-align: center;">Verify Yourself</h2>
+            <form #loginForm="ngForm" (ngSubmit)="checkLogin()">
+                <div class="container69" style="border-radius: 10px;">
+                    <!--{{loginForm.value|json}}-->
+                    
+                    <label for="uname" class="buttonTextMain"><b style="color: honeydew;">Username</b></label>
+                    <!--<input type="text" placeholder="Enter Username" [(ngModel)]="user.uname" name="uname" required>-->
+                    <input style="border-radius: 10px;" type="text" #unm="ngModel" placeholder="Enter Username" name = "uname" [(ngModel)]="user.fullName" required>
+                    <div *ngIf="unm.invalid && (unm.dirty || unm.touched)">
+                        <div class="alert" *ngIf="unm.errors.required" style="color: rgb(145, 255, 0);">
+                            User-Name is required !
+                        </div>
+                    </div>
+
+                    <label for="psw" class="buttonTextMain"><b style="color: honeydew;">Password</b></label>
+                    <!--<input type="password" placeholder="Enter Password" [(ngModel)]="user.psw" name="psw" required>-->
+                    <input style="border-radius: 10px;" type="password" #pass="ngModel" placeholder="Enter Password" name= "psw" [(ngModel)]="user.password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                    <div *ngIf="pass.invalid && (pass.dirty || pass.touched)">
+                        <div class="alert" *ngIf="pass.errors.required" style="color: rgb(145, 255, 0);">
+                            Password is required !
+                        </div>
+                        <div class="alert" *ngIf="pass.errors.pattern" style="color: cyan; ">
+                            Invalid Password Format !
+                        </div>
+                    </div>
+
+                    <button type="submit" style=" text-shadow: 0 0 10px rgb(255, 51, 0); margin-top: 10px; border: 1px solid rgb(0, 0, 0); border-radius: 10px;"><b style="color: whitesmoke;">Login</b></button>
+
+                </div>
+                <div class="container69" style="background-image: url(../../assets/images/black-and-grey-diagonal-pattern-facebook-cover-timeline-banner-for-fb.jpg);border: 1px solid greenyellow; border-radius: 10px; ">
+                    <button style="border: 1px solid greenyellow; border-radius: 10px;" type="button" class="cancelbtn" [routerLink]="['/homeLink']"><b style="color: whitesmoke; text-shadow: 0 0 10px yellow;">Cancel</b></button>
+                    <span class="psw"><a href="#" style="color: aqua; text-shadow: 0 0 10px yellow;">Forgot Password?</a></span> 
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

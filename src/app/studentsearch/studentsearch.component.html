@@ -1,0 +1,113 @@
+<div class="card123" style="text-align: center; width: 1270px;background-image: url(../../assets/images/grey.jpg)">
+    <h1 class="buttonTextMain">Search Student</h1>
+    <div class="container" style="text-align: center; background-image: url('../../assets/images/black222.jpg'); width:auto ; border: 1px solid greenyellow; border-radius: 10px;">
+        <form action="/action_page.php">
+
+            <div class="row">
+                <div class="col-25">
+                    <label for="topic" style=" font-size: 20px;">Technology</label>
+                </div>
+                <div class="col-75">
+                    <select id="topic" name="topic">
+                        <option value="Java">Java</option>
+                        <option value="MySQL">MySQl</option>
+                        <option value="PHP">PHP</option>
+                        <option value="C++">C/C++</option>
+                        <option value="Python">Python</option>
+                        <option value="NET">C#/.NET</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-25">
+                    <label for="state" style=" font-size: 20px;">State</label>
+                </div>
+                <div class="col-75">
+                    <select id="state" name="state">
+                        <option value="Java">West Bengal</option>
+                        <option value="MySQL">Maharashtra</option>
+                        <option value="PHP">Jharkhand</option>
+                        <option value="C++">Bihar</option>
+                        <option value="Python">Uttar Pradesh</option>
+                        <option value="NET">Tamil Nadu</option>
+                        <option value="NET">Karnataka</option>
+                        <option value="NET">Punjab</option>
+                        <option value="NET">Odissa</option>
+                        <option value="NET">Andhra Pradesh</option>
+                        <option value="NET">Telengana</option>
+                        <option value="NET">Jammu & Kashmir</option>
+                        <option value="NET">Delhi</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-25">
+                    <label for="city" style=" font-size: 20px;">City</label>
+                </div>
+                <div class="col-75">
+                    <select id="city" name="city">
+                        <option value="Java">Kolkata</option>
+                        <option value="MySQL">Ranchi</option>
+                        <option value="PHP">Mumbai</option>
+                        <option value="C++">New Delhi</option>
+                        <option value="Python">Pune</option>
+                        <option value="NET">Chennai</option>
+                        <option value="NET">Bengaluru</option>
+                        <option value="NET">Kochi</option>
+                        <option value="NET">Hyderabad</option>
+                        <option value="NET">Patna</option>
+                        <option value="NET">Srinagar</option>
+                        <option value="NET">Chandigarh</option>
+                        <option value="NET">Vishakhapattnam</option>
+                        <option value="NET">Asansol</option>
+                        <option value="NET">Wasseypur</option>
+                        <option value="NET">Lucknow</option>
+                        <option value="NET">Allahabad</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-25">
+                    <label for="level" style=" font-size: 20px;">Level</label>
+                </div>
+                <div class="col-75">
+                    <select id="level" name="level" aria-placeholder="-">
+                        <option value="LevelI">Level I</option>
+                        <option value="LevelII">Level II</option>
+                        <option value="LevelII">Level III</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-25">
+                    <label for="levelmarks" style=" font-size: 20px;">Level Marks</label>
+                </div>
+                <div class="col-75">
+                    <input type="number" max="10" min="0" style="height: 40px; float: left; width: 100px;" id="levelmarks" name="levelmarks" placeholder="-">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-25">
+                    <label for="totalmarks" style=" font-size: 20px;">Total Marks</label>
+                </div>
+                <div class="col-75">
+                    <input type="number" max="30" min="0" style="height: 40px; float: left; width: 100px;" id="totalmarks" name="totalmarks" placeholder="-">
+                </div>
+            </div>
+
+            <br>
+            <div class="row">
+                <input type="submit" value="Search" style="float: none; margin-bottom: 20px; margin-top: 20px; text-shadow: 0 0 10px red;"><br>
+                <button style="float: left; margin-bottom: 20px; margin-top: 20px; width: 100px; text-shadow: 0 0 10px red;" [routerLink]="['/adminLink']">Back</button>
+            </div>
+            <br>
+        </form>
+    </div>
+    <br><br><br>
+</div>
+<br>

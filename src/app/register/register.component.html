@@ -1,0 +1,285 @@
+<div>
+    <div class="main">
+        <div class="card" style="background-image: url(../../assets/images/black222.jpg);">
+            <h2 class="buttonTextMain" style="text-align: center;">Register to explore amazing career opportunities!</h2>
+            <form #registerForm="ngForm" (ngSubmit)="register()">
+                <div class="container69" style="border-radius: 10px;">
+
+                    <label for="uname"><p>Full Name</p></label>
+                    <input  type="text" #username="ngModel" [(ngModel)]="user.fullName" placeholder="Enter Username" name="uname" required>
+                    <div *ngIf="username.invalid && (username.dirty || username.touched)">
+                        <div class="alert" *ngIf="username.errors.required">
+                            Name is required !
+                        </div>
+                    </div>
+
+                    <label for="email"><p>Email Address</p></label>
+                    <input type="email" #email="ngModel"  placeholder="Enter Email Address" [(ngModel)]="user.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" required>
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                        <div class="alert" *ngIf="email.errors.required">
+                            Email is required !
+                        </div>
+                        <div class="alert" *ngIf="email.errors.pattern" style="color: rgb(92, 250, 255);">
+                            Invalid Email !
+                        </div>
+                    </div>
+
+                    <label for="mobile"><p>Mobile No.</p></label><br>
+                    <input style="border-radius: 5px; margin-top: 0px;" type="number" #mob="ngModel"  placeholder="Enter Mobile Number" [(ngModel)]="user.mobile"  name="mobile" pattern="\d{10}" required>
+                    <div *ngIf="mob.invalid && (mob.dirty || mob.touched)">
+                        <div class="alert" *ngIf="mob.errors.required" >
+                           Mobile Number is required !
+                        </div>
+                        <div class="alert" *ngIf="mob.errors.pattern" style="color: rgb(0, 247, 255);">
+                            Invalid Mobile Number !
+                        </div>
+                    </div>
+
+                    <label for="state"><p>State</p></label>
+                    <!--<input type="text" #state="ngModel" placeholder="Enter State" [(ngModel)]="reg.city" name="state" required>-->
+                    <select id="state" #state="ngModel" placeholder="Enter State" [(ngModel)]="user.state" name="state" required>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                        <option value="Daman and Diu">Daman and Diu</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Lakshadweep">Lakshadweep</option>
+                        <option value="Puducherry">Puducherry</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
+                    </select>
+                    <div *ngIf="state.invalid && (state.dirty || state.touched)">
+                        <div class="alert" *ngIf="state.errors.required" >
+                            State is required !
+                        </div>
+                    </div>
+
+                    <label for="city"><p>City</p></label>
+                    <input type="text" #city="ngModel" placeholder="Enter City" [(ngModel)]="user.city" name="city" required>
+                    <div *ngIf="city.invalid && (city.dirty || city.touched)">
+                        <div class="alert" *ngIf="city.errors.required" >
+                            City is required !
+                        </div>
+                    </div>
+
+                    <label for="dob"><p>Date of Birth</p></label>
+                    <input type="date" #dob="ngModel" [(ngModel)]="user.dateOfBirth" min="1990-01-01" max="1998-12-31" name="dob" required>
+                    <div *ngIf="dob.invalid && (dob.dirty || dob.touched)">
+                        <div class="alert" *ngIf="dob.errors.required" >
+                            Date of birth is required !
+                        </div>
+                    </div>
+                    
+                    <label for="qlfn">
+                        <p>Qualificaton</p>
+                    </label>
+                    <select id="qlfn" #qf="ngModel" [(ngModel)]="user.qualification" name="qlfn" required>
+                        <option value="B.Tech">B.Tech</option>
+                        <option value="M.Tech">M.Tech</option>
+                        <option value="BCA">BCA</option>
+                        <option value="MCA">MCA</option>
+                    </select>
+                    <div *ngIf="qf.invalid && (qf.dirty || qf.touched)">
+                        <div class="alert" *ngIf="qf.errors.required">
+                            Qualificaton is required !
+                        </div>
+                    </div>
+
+                    <label for="yoc"><p>Year of Completion</p></label>
+                    <input type="date" #yoc="ngModel" [(ngModel)]="user.yearOfCompletion" min="2012-01-01" max="2020-10-31" name="yoc" required>
+                    <div *ngIf="yoc.invalid && (yoc.dirty || yoc.touched)">
+                        <div class="alert" *ngIf="yoc.errors.required">
+                            Year of completion is required !
+                        </div>
+                    </div>
+                    
+                    <label for="psw"><p>Password</p></label>
+                    <input type="password" #pass="ngModel"  placeholder="Enter Password" [(ngModel)]="user.password" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                    <div *ngIf="pass.invalid && (pass.dirty || pass.touched)">
+                        <div class="alert" *ngIf="pass.errors.required">
+                            Password is required !
+                        </div>
+                        <div class="alert" *ngIf="pass.errors.pattern" style="color: cyan; ">
+                            Invalid Password Format !
+                        </div>
+                    </div>
+
+                    <label for="pswc"><p>Confirm Password</p></label>
+                    <input type="password" #pass2="ngModel"  placeholder="Confirm Password" [(ngModel)]="abc" name="pswc" pattern="\b{{user.password}}\b"   required>
+                    <div *ngIf="pass2.invalid && (pass2.dirty || pass2.touched)">
+                        <div class="alert" *ngIf="pass2.errors.required">
+                            Password is required !
+                        </div>
+                        <div class="alert" *ngIf="pass2.errors.pattern" style="color: cyan; ">
+                             Password Does Not Match !
+                        </div>
+                    </div>
+
+
+                    <form #captchaProtectedForm="ngForm" style="margin: 8px;">
+                        <re-captcha [(ngModel)]="formModel.captcha" name="captcha" required
+                            siteKey="6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU" #captchaControl="ngModel"></re-captcha>
+                        <div [hidden]="captchaControl.valid" class="error" style="color: wheat; margin: 8px; text-shadow: 0 0 10px red;">Captcha must be
+                            solved</div>
+                        <div [hidden]="!captchaControl.valid" class="success" style="color: wheat; margin: 8px; text-shadow: 0 0 10px cyan;">Captcha is valid</div>
+                        <button [hidden]="captchaControl.valid" (click)="formModel.captcha = ''" style="margin: 8px; width: 200px; background-color: rgb(0, 162, 255); float: right;">Reset Captcha</button>
+                    </form>
+                    
+                    <div *ngIf="captchaProtectedForm.valid &&  username.valid && email.valid && mob.valid && state.valid && city.valid && dob.valid && qf.valid && yoc.valid && pass.valid && pass2.valid ">
+                    <button type="submit">Register</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--<div>
+    <div class="main">
+        <div class="card"
+            style="padding-bottom: 40px; border-radius: 10px; background-image: url('../../assets/images/black222.jpg');">
+            <h2 class="buttonTextMain" style="text-align: center;">Register Here</h2>
+            <form #registerForm="ngForm" class="f1">
+                <div class="container69">
+                    <label for="fname">
+                        <p>Full Name</p>
+                    </label>
+                    <input type="text" placeholder="Enter Username" name="uname" required>
+
+                    <label for="email">
+                        <p>Email Address</p>
+                    </label>
+                    <input type="email" placeholder="Enter Email Address" name="email" required>
+
+                    <label for="state">
+                        <p>State</p>
+                    </label>
+                    <div class="col-75">
+                        <select id="state" #state="ngModel" placeholder="Enter State" [(ngModel)]="reg.city" name="state" required>
+                            <option value="-" selected>---</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                            <option value="Daman and Diu">Daman and Diu</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Lakshadweep">Lakshadweep</option>
+                            <option value="Puducherry">Puducherry</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="West Bengal">West Bengal</option>
+                        </select>
+                    </div>
+
+                    <label for="city">
+                        <p>City</p>
+                    </label>
+                    <input type="text" placeholder="Enter City" name="city" required>
+
+                    <label for="dob">
+                        <p>Date of Birth</p>
+                    </label>
+                    <input type="date" min="1990-01-01" max="1998-12-31" name="dob">
+
+                    <label for="qlfn">
+                        <p>Qualificaton</p>
+                    </label>
+                    <select id="qlfn" name="qlfn">
+                        <option value="-" selected>---</option>
+                        <option value="Andhra Pradesh">B.Tech</option>
+                        <option value="Andaman and Nicobar Islands">M.Tech</option>
+                        <option value="Arunachal Pradesh">BCA</option>
+                        <option value="Assam">MCA</option>
+                    </select>
+
+                    <label for="yoc">
+                        <p>Year of Completion</p>
+                    </label>
+                    <input type="date" min="2012-01-01" max="2020-10-31" name="yoc">
+
+                    <label for="mobile">
+                        <p>Mobile No.</p>
+                    </label>
+                    <input type="number" min="1000000000" max="9999999999" placeholder="Enter Mobile Number "
+                        name=" mobile" required>
+
+                    <label for="psw">
+                        <p>Enter Password</p>
+                    </label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+
+                    <label for="psw">
+                        <p>Confirm Password</p>
+                    </label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+
+                    <form #captchaProtectedForm="ngForm">
+                        <re-captcha [(ngModel)]="formModel.captcha" name="captcha" required
+                            siteKey="6Ldv098ZAAAAAAWaQMroMtB7Urr_8WDeIdhva3BB" #captchaControl="ngModel"></re-captcha>
+                        <div [hidden]="captchaControl.valid || captchaControl.pristine" class="error">Captcha must be
+                            solved</div>
+                        <div [hidden]="!captchaControl.valid" class="success">Captcha is valid</div>
+                        <div [hidden]="captchaProtectedForm.form.valid" class="error">The form must be filled out</div>
+                        <div [hidden]="!captchaProtectedForm.form.valid" class="success">The form is valid</div>
+                        <button (click)="formModel.captcha = ''">Reset Captcha</button>
+                    </form>
+                    <span id="mbError" style="color:red"></span>
+                    <button type="submit" style="color: black;">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>-->

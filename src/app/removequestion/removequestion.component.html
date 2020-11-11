@@ -1,0 +1,88 @@
+<div class="card123" style="text-align: center; widows: 1300px;background-image: url(../../assets/images/black-and-grey-diagonal-pattern-facebook-cover-timeline-banner-for-fb.jpg);
+    border: 1px solid greenyellow; border-radius: 10px;">
+    <h1 class="buttonTextMain">Remove Question</h1>
+    <div class="container"
+        style="text-align: center; width:auto ;  border: 1px solid greenyellow; border-radius: 10px; ">
+        <!--<form >-->
+        <div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="fname" style="font-size: 20px;">Topic</label>
+
+                </div>
+                <div class="col-75">
+                    <select id="topic" name="topic" [(ngModel)]=questions.subId>
+                        <option value="java">Java</option>
+                        <option value="plSql">MySQl</option>
+                        <option value="php">PHP</option>
+                        <option value="cCpp">C/C++</option>
+                        <option value="python">Python</option>
+                        <option value="dotNet">C#/.NET</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="lname" style="font-size: 20px;">Level ID</label>
+                </div>
+                <div class="col-75">
+                    <select id="topic" name="topic" [(ngModel)]=questions.levelId>
+                        <option value="1">Level I</option>
+                        <option value="2">Level II</option>
+                        <option value="3">Level III</option>
+                    </select>
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <button 
+                    style="float: none; margin-bottom: 20px; margin-top: 20px; text-shadow: 0 0 10px red;"
+                    (click)="searchquest()">Search</button>
+            </div>
+            <div style="color: red;">
+ 
+                <table style="background-color: white;">
+                    <tr>
+                        <th>Question Id</th>
+                        <th>Question Statement</th>
+                    </tr>
+                    <tr *ngFor="let q of ql">
+                       
+                        <td>{{q.id}}</td>
+                        <td>{{q.questionStatement}}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <br><br>
+            <div class="row">
+                <div class="col-25">
+                    <label for="lname" style=" font-size: 20px;">Select Question Id</label>
+                </div>
+                <div class="col-75">
+                    <input type="number" style="height: 40px; float: left; width: 100px;" id="lname" name="lastname"
+                        placeholder="Question Id" [(ngModel)]="delete1.id">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <button (click)="deleteTutorial()"
+                    style="float: none; margin-bottom: 20px; margin-top: 20px; text-shadow: 0 0 10px red;">Delete</button>
+                <!-- <button type="button" style="float: none; margin-bottom: 20px; margin-top: 20px; text-shadow: 0 0 10px red;"(click)="delete(item)">Delete</button> -->
+                <button
+                    style="float: left; margin-bottom: 20px; margin-top: 20px; width: 100px; text-shadow: 0 0 10px red;"
+                    [routerLink]="['/adminLink']">Back</button>
+            </div>
+            <br>
+        </div>
+    </div>
+
+</div>
+<br>
+
+
+<!--
+    [(ngModel)]=questions.subId
+    [(ngModel)]=questions.levelId
+-->

@@ -1,0 +1,106 @@
+<div class="card123" style="text-align: center; width:1270px;">
+    <h1 class="buttonTextMain">ADD QUESTION</h1>
+    <div class="container"
+        style="text-align: center; width:auto ; 
+        background-image: url('../../assets/images/black222.jpg');
+        border: 1px solid greenyellow; border-radius: 10px; ">
+        <form (ngSubmit)="add()">
+            <div class="row">
+                <div class="col-25">
+                    <label for="topic" style=" font-size: 20px;" >Topic</label>
+                </div>
+                <div class="col-75" style="width: 100px;">
+                    <select id="topic" name="topic" [(ngModel)]=questions.subId>
+                        <option value="0">Java</option>
+                        <option value="1">MySQl</option>
+                        <option value="2">PHP</option>
+                        <option value="3">C/C++</option>
+                        <option value="4">Python</option>
+                        <option value="5">C#/.NET</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-25">
+                    <label for="level" style=" font-size: 20px;" >Level</label>
+                </div>
+                <div class="col-75" style="width: 100px;">
+                    <select id="level" name="level" [(ngModel)]=questions.levelId>
+                        <option value="1">Level I</option>
+                        <option value="2">Level II</option>
+                        <option value="3">Level III</option>
+                        
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-25">
+                    <label for="qnst" style=" font-size: 20px;" >Question</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="qnst" name="qnst" [(ngModel)]=questions.questionStatement placeholder="Write Question To Be Inserted.." >
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-25">
+                    <label for="opa" style="font-size: 20px;" >Option A</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="opa" name="opa" [(ngModel)]=questions.option1 placeholder="Option 1.." >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="opb" style="font-size: 20px;">Option B</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="opb" name="opb" [(ngModel)]=questions.option2 placeholder="Option 2.." >
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-25">
+                    <label for="opc" style=" font-size: 20px;">Option C</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="opc" name="opc" [(ngModel)]=questions.option3 placeholder="Option 3.." >
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-25">
+                    <label for="opd" style=" font-size: 20px;">Option D</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="opd" name="opd" [(ngModel)]=questions.option4 placeholder="Option 4.." >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="cop" style=" font-size: 20px;">Correct Option</label>
+                </div>
+                <div class="col-75" style="width: 100px;">
+                    <select id="cop" name="cop" [(ngModel)]=questions.correctAnswer>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" class="buttonTextMain" value="Add" style="float: none; margin-bottom: 20px; margin-top: 20px; text-shadow: 0 0 10px red;">
+                <button style="float: left; margin-bottom: 20px; margin-top: 20px; width: 100px; text-shadow: 0 0 10px red;" [routerLink]="['/adminLink']">Back</button>
+            </div>
+ 
+        </form>
+
+    </div>
+
+</div>
